@@ -47,7 +47,7 @@ public class DigitalBankingApplication {
                         .id(UUID.randomUUID().toString())
                         .customer(customer)
                         .balance(Math.random()*9000)
-                        .createdat(new Date())
+                         .createdat(new Date())
                         .status(AccountStatus.CREATED)
                         .overdraft(500)
                         .build();
