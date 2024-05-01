@@ -11,8 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor @Builder
 public class AccountOperation {
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date date;
     private Double amount;
@@ -20,6 +19,7 @@ public class AccountOperation {
     private OperationType type;
     @ManyToOne
     private BankAccount bankAccount;
+    private String description;
 
 
 }
