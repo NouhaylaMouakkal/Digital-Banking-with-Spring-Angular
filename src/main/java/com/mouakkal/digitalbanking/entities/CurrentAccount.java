@@ -9,12 +9,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-@Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@SuperBuilder
 @DiscriminatorValue("CA")
-public class CurrentAccount extends BankAccount{
-    private double overdraft;
+@Data @AllArgsConstructor @NoArgsConstructor
+public class CurrentAccount extends  BankAccount{
+    private double overDraft;
 }

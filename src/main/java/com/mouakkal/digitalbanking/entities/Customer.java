@@ -9,18 +9,17 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Data @AllArgsConstructor @NoArgsConstructor
 public class Customer {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
     @OneToMany(mappedBy = "customer")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // Pas la peine de serializé bankAccount lors de la serialization du customer
     private List<BankAccount> bankAccounts;
+
+
 
 }

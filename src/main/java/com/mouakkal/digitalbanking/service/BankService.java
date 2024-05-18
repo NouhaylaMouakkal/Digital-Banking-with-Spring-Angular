@@ -21,16 +21,16 @@ public class BankService {
             System.out.println(bankAccount.getId());
             System.out.println(bankAccount.getBalance());
             System.out.println(bankAccount.getStatus());
-            System.out.println(bankAccount.getCreatedat());
+            System.out.println(bankAccount.getCreateAt());
             System.out.println(bankAccount.getCustomer().getName());
             System.out.println(bankAccount.getClass().getSimpleName());
             if (bankAccount instanceof CurrentAccount) {
-                System.out.println("Over Draft=>" + ((CurrentAccount) bankAccount).getOverdraft());
+                System.out.println("Over Draft=>" + ((CurrentAccount) bankAccount).getOverDraft());
             } else if (bankAccount instanceof SavingAccount) {
-                System.out.println("Rate=>" + ((SavingAccount) bankAccount).getRate());
+                System.out.println("Rate=>" + ((SavingAccount) bankAccount).getInterestRate());
             }
             bankAccount.getAccountOperations().forEach(op -> {
-                System.out.println(op.getType() + "\t" + op.getDate() + "\t" + op.getAmount());
+                System.out.println(op.getType() + "\t" + op.getOperationDate() + "\t" + op.getAmount());
             });
         }
     }

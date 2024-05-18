@@ -1,31 +1,27 @@
 package com.mouakkal.digitalbanking.entities;
 
+import com.mouakkal.digitalbanking.enumeration.AccountStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 import java.util.List;
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@SuperBuilder
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TYPE", length = 4)
+@DiscriminatorColumn(name = "TYPE" , length = 4)
+@Data @AllArgsConstructor @NoArgsConstructor
 public class BankAccount {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
-    private Date createdat;
-    private Double balance;
+    private double balance;
+    private Date createAt;
     @Enumerated(EnumType.STRING)
     private AccountStatus status;
-    private String Currency ;
+
     @ManyToOne
     private Customer customer;
-    @OneToMany(mappedBy = "bankAccount", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy = "bankAccount" , fetch = FetchType.LAZY)
     private List<AccountOperation> accountOperations;
 }

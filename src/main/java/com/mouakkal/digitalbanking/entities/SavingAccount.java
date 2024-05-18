@@ -7,12 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-@Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@SuperBuilder
 @DiscriminatorValue("SA")
+@Data @AllArgsConstructor @NoArgsConstructor
 public class SavingAccount extends BankAccount{
-    private double rate;
+    private double interestRate;
 }

@@ -11,32 +11,41 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController @AllArgsConstructor @Slf4j
+@RestController
+@AllArgsConstructor
+@CrossOrigin("*")
 public class CustomerRestController {
     private BankAccountService bankAccountService;
-    @GetMapping("/customers")
+
+    @GetMapping(path = "/customers")
     public List<CustomerDTO> customers(){
         return bankAccountService.listCustomers();
     }
-    @GetMapping("/customers/search")
-    public List<CustomerDTO> searchCustomers(@RequestParam(name = "keyword",defaultValue = "") String keyword){
-        return bankAccountService.searchCustomers("%"+keyword+"%");
+    @GetMapping(path = "/customers/search")
+    public List<CustomerDTO> searchCustomers(@RequestParam(name = "keyword" , defaultValue = "") String keyword){
+        return bankAccountService.searchCustomers(keyword);
     }
-    @GetMapping("/customers/{id}")
-    public CustomerDTO getCustomer(@PathVariable(name = "id") Long customerId) throws CustomerNotFoundException {
-        return bankAccountService.getCustomer(customerId);
+
+    @GetMapping(path = "/customers/{id}")
+    public CustomerDTO getCustomer(@PathVariable(name = "id") Long Customerid) throws Exception {
+        return bankAccountService.getCustomer(Customerid);
     }
-    @PostMapping("/customers")
+
+    // signifie que les données du customer vont etre recuperer a partir des données de la requete en format JSON
+    @PostMapping(path = "/customers")
     public CustomerDTO saveCustomer(@RequestBody CustomerDTO customerDTO){
         return bankAccountService.saveCustomer(customerDTO);
     }
+
     @PutMapping("/customers/{customerId}")
-    public CustomerDTO updateCustomer(@PathVariable Long customerId, @RequestBody CustomerDTO customerDTO){
+    public CustomerDTO updateCustomer(@PathVariable(name="customerId") Long customerId,@RequestBody CustomerDTO customerDTO){
         customerDTO.setId(customerId);
         return bankAccountService.updateCustomer(customerDTO);
     }
-    @DeleteMapping("/customers/{id}")
-    public void deleteCustomer(@PathVariable Long id){
-        bankAccountService.deleteCustomer(id);
+
+    @DeleteMapping(path = "/customers/{customerId}")
+    public void deleteCustomer(@PathVariable Long customerId){
+        bankAccountService.deleteCustomer(customerId);
     }
+
 }

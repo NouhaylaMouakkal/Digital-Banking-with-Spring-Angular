@@ -1,4 +1,4 @@
-package com.mouakkal.digitalbanking.entities;
+package com.mouakkal.digitalbanking.enumeration;
 
 public enum OperationType {
     CREDIT, DEBIT
