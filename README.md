@@ -27,7 +27,7 @@ Serveur BACKEND
 
 1-Structure du projet :
 
-![structureprojetbackend]()
+![structureprojetbackend](./frontend/src/assets/backend%20structure.png)
 
 -Entities (Entités) : Les entités représentent les objets métier de l'application et sont utilisées pour représenter les tables de la base de données. Elles contiennent des attributs et des relations qui décrivent les données de l'application.
 
@@ -1001,7 +1001,7 @@ L'architecture d'un projet Angular favorise la modularité, la réutilisabilité
 
 2- Strcuture d'un projet Angular :
 
-![structureAngular]()
+![structureAngular](./frontend/src/assets/frontend%20structure.png)
 
 La structure d'un projet Angular typique comprend plusieurs répertoires et fichiers :
 
@@ -1015,8 +1015,6 @@ La structure d'un projet Angular typique comprend plusieurs répertoires et fich
 -Les fichiers de services : Les services Angular sont généralement définis dans des fichiers séparés et fournissent des fonctionnalités partagées et des opérations de traitement des données.
 
 * Fichier package.json 
-
-![packagejson]()
 
 Le fichier "package.json" : Il spécifie les dépendances du projet et contient des scripts pour les tâches courantes, telles que la compilation et le lancement de l'application.
 
